@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#72046b">
+    <title>Tic-Tac-Toe Game</title>
+</head>
+<body>
+    
+    <!-- <nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top">
+        My Tic Tac Toe Game
+    </nav> -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 p-3">
+                <h1>Game Board</h1>
+
+                <div class="gameBoard">
+                    <button class="cell"></button>
+                    <button class="cell"></button>
+                    <button class="cell"></button>
+                    <button class="cell"></button>
+                    <button class="cell"></button>
+                    <button class="cell"></button>
+                    <button class="cell"></button>
+                    <button class="cell"></button>
+                    <button class="cell"></button>
+                </div>
+            </div>
+            <div class="col-md-6 p-3">
+            <h2>Let's play Tic-Tac-Toe</h2>
+                <div class="side">
+
+                    <div class="scoreBoard">
+                        <h5><strong>Score Board :</strong></h5>
+                        <div class="score o-score">O: <span id="scoreO">0</span></div>
+                        <div class="score draw-score">Draw: <span id="scoreDraw">0</span></div>
+                        <div class="score x-score">X: <span id="scoreX">0</span></div>
+                    </div>
+
+                    
+
+                    <div class="gamePlayersSec">
+
+                        <div class="inputSec col-md-6">
+                            <input type="text" id="playerO" placeholder="Player O Name" />
+                            <input type="text" id="playerX" placeholder="Player X Name" />
+                        </div>
+
+                        <div class="showPlayers col-md-6">
+                            <div class="player player1"></div>
+                            <div class="player player2"></div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="turnIndicator"></div>
+
+                    <div class="btnSec">
+                        <button id="startNames" class="btn btn-secondary">Set Names</button>
+                        <button class="restartBtn btn">Restart</button>
+                        <button id="resetScore" class="btn btn-secondary">Reset Score</button>
+                    </div>
+
+                    <div class="info"></div>
+                
+                    <div class="imgBox">
+                        <img id="excited" src="excited.gif" alt="Excited">
+                    </div>
+                    <div class="imgFolder">
+                        <img id="sad" src="cry.gif" alt="Sad">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+
+    <script>
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker
+        .register("service-worker.js")
+        .then(() => console.log("Service Worker Registered"))
+        .catch(err => console.log("SW error", err));
+}
+</script>
+
+</body>
+</html>
