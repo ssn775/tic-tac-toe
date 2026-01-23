@@ -387,6 +387,39 @@ saveScores(); //
 startGame();
 
 
-console.log(localStorage.getItem("tic_tac_toe_scores"));
-console.log(JSON.parse(localStorage.getItem("tic_tac_toe_scores")));
+//console.log(localStorage.getItem("tic_tac_toe_scores"));
+//console.log(JSON.parse(localStorage.getItem("tic_tac_toe_scores")));
+
+let deferredPrompt;
+const installBtn = document.getElementById("installBtn");
+
+// Listen for install availability
+window.addEventListener("beforeinstallprompt", (e) => {
+    e.preventDefault();              // stop auto prompt
+    deferredPrompt = e;              // save event
+    installBtn.classList.remove("hidden");
+});
+
+// When user clicks install
+installBtn.addEventListener("click", async () => {
+    if (!deferredPrompt) return;
+
+    deferredPrompt.prompt();         // show install dialog
+    const { outcome } = await deferredPrompt.userChoice;
+
+    if (outcome === "accepted") {
+        console.log("App installed");
+    }
+
+    deferredPrompt = null;
+    installBtn.classList.add("hidden");
+});
+
+// Hide button after install
+window.addEventListener("appinstalled", () => {
+    console.log("PWA installed");
+    installBtn.classList.add("hidden");
+});
+
+
 
